@@ -1,0 +1,6 @@
+body {
+  background-color: #edf0f2;
+}
+div.MuiContainer-root > div.MuiGrid-root {
+  margin-top: 50%;
+}
