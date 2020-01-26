@@ -5,8 +5,8 @@ const gridStyle = () => ({
     padding: 10,
     borderRadius: 10,
     height: "100vh",
-    backgroundColor: "var(--color-theme3)",
-    boxShadow: "var(--box-shadow-1)",
+    backgroundColor: "var(--color-background2)",
+    boxShadow: "var(--box-shadow1)",
   }
 });
 

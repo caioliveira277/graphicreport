@@ -19,30 +19,12 @@ body,
   font-family: "Roboto", sans-serif;
 }
 :root {
-  --color-theme1: #9233ea;
-  --color-theme2: #ffffff;
-  --color-theme3: #c7dcea;
+  --color-background1: #9233ea;
+  --color-text1: #ffffff;
+  --color-background2: #c7dcea;
+  --color-text2: #ffffff;
 
-  --box-shadow-1: 0px 5px 15px #00000085;
-}
-
-.bg-theme1 {
-  background-color: var(--color-theme1);
-}
-.color-theme1 {
-  color: var(--color-theme1);
-}
-.bg-theme2 {
-  background-color: var(--color-theme2);
-}
-.color-theme2 {
-  color: var(--color-theme2);
-}
-.bg-theme3 {
-  background-color: var(--color-theme3);
-}
-.color-theme3 {
-  color: var(--color-theme3);
+  --box-shadow1: 0px 5px 15px #00000085;
 }
 
 ::-webkit-scrollbar {
@@ -51,5 +33,5 @@ body,
 ::-webkit-scrollbar-thumb {
   -webkit-border-radius: 10px;
   border-radius: 10px;
-  background: var(--color-theme1);
+  background: var(--color-background1);
 }

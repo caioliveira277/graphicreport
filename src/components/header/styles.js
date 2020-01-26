@@ -1,9 +1,9 @@
 const headerStyle = () => ({
   root: {
-    backgroundColor: "var(--color-theme1)",
+    backgroundColor: "var(--color-background1)",
     height: "auto",
-    color: "var(--color-theme2)",
-    boxShadow: "var(--box-shadow-1)",
+    color: "var(--color-text1)",
+    boxShadow: "var(--box-shadow1)",
     padding: 10,
     '& .tab':{
       padding: 0
@@ -20,7 +20,7 @@ const cardStyle = () => ({
       cursor: "pointer"
     },
     "& button": {
-      color: "var(--color-theme2)",
+      color: "var(--color-text1)",
       textTransform: "capitalize",
       fontSize: "1rem"
     }
