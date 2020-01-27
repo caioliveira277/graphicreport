@@ -10,6 +10,29 @@ export default function Tasks() {
     left: false
   });
 
+  const dataTable = {
+    columns: [
+      { title: "Nome", field: "name" },
+      { title: "Descrição", field: "description" },
+      { title: "Finalizar em", field: "finishIn", type: "date" },
+      {
+        title: "Prioridade",
+        field: "priority",
+        lookup: { 34: "Simples", 63: "Urgente" }
+      }
+    ],
+    data: [
+      {
+        name: "Projeto 1",
+        description: "loren loren loren y",
+        finishIn: "01/12/2019",
+        priority: 63
+      }
+    ],
+    title: "Tarefas",
+    editable: true
+  };
+
   const toggleDrawer = (side, open) => event => {
     setState({ ...state, [side]: open });
   };
@@ -32,7 +55,7 @@ export default function Tasks() {
             </Alert>
           </Box>
           <ListItem>
-            <MaterialTable />
+            <MaterialTable data={dataTable} />
           </ListItem>
           <ListItem>
             <ThemePicker />

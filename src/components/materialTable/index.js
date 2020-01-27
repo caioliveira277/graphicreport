@@ -1,27 +1,49 @@
 import React, { useState } from "react";
 import Table from "material-table";
 
-export default function MaterialTable() {
-  const [state, setState] = useState({
-    columns: [
-      { title: "Nome", field: "name" },
-      { title: "Descrição", field: "description" },
-      { title: "Finalizar em", field: "finishIn", type: "date" },
-      {
-        title: "Prioridade",
-        field: "priority",
-        lookup: { 34: "Simples", 63: "Urgente" }
-      }
-    ],
-    data: [
-      {
-        name: "Projeto 1",
-        description: "loren loren loren y",
-        finishIn: "01/12/2019",
-        priority: 63
-      }
-    ]
-  });
+export default function MaterialTable({ data }) {
+  const [state, setState] = useState(data);
+  var editable = {};
+
+  if (state.editable === true) {
+    editable = {
+      onRowAdd: newData =>
+        new Promise(resolve => {
+          setTimeout(() => {
+            resolve();
+            setState(prevState => {
+              const data = [...prevState.data];
+              data.push(newData);
+              return { ...prevState, data };
+            });
+          }, 600);
+        }),
+      onRowUpdate: (newData, oldData) =>
+        new Promise(resolve => {
+          setTimeout(() => {
+            resolve();
+            if (oldData) {
+              setState(prevState => {
+                const data = [...prevState.data];
+                data[data.indexOf(oldData)] = newData;
+                return { ...prevState, data };
+              });
+            }
+          }, 600);
+        }),
+      onRowDelete: oldData =>
+        new Promise(resolve => {
+          setTimeout(() => {
+            resolve();
+            setState(prevState => {
+              const data = [...prevState.data];
+              data.splice(data.indexOf(oldData), 1);
+              return { ...prevState, data };
+            });
+          }, 600);
+        })
+    };
+  }
 
   return (
     <Table
@@ -57,46 +79,10 @@ export default function MaterialTable() {
           editTooltip: "Editar"
         }
       }}
-      title="Tarefas"
+      title={state.title}
       columns={state.columns}
       data={state.data}
-      editable={{
-        onRowAdd: newData =>
-          new Promise(resolve => {
-            setTimeout(() => {
-              resolve();
-              setState(prevState => {
-                const data = [...prevState.data];
-                data.push(newData);
-                return { ...prevState, data };
-              });
-            }, 600);
-          }),
-        onRowUpdate: (newData, oldData) =>
-          new Promise(resolve => {
-            setTimeout(() => {
-              resolve();
-              if (oldData) {
-                setState(prevState => {
-                  const data = [...prevState.data];
-                  data[data.indexOf(oldData)] = newData;
-                  return { ...prevState, data };
-                });
-              }
-            }, 600);
-          }),
-        onRowDelete: oldData =>
-          new Promise(resolve => {
-            setTimeout(() => {
-              resolve();
-              setState(prevState => {
-                const data = [...prevState.data];
-                data.splice(data.indexOf(oldData), 1);
-                return { ...prevState, data };
-              });
-            }, 600);
-          })
-      }}
+      editable={editable}
     />
   );
 }

@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { useHistory } from "react-router-dom";
 import {
   AssignmentTurnedInRounded,
   BarChartRounded,
@@ -8,11 +9,27 @@ import {
 } from "@material-ui/icons";
 import { Box, Tabs, Tab as TabElement } from "@material-ui/core";
 
+const page = {
+  "/": 0,
+  "/graphics": 1,
+  "/clients": 2,
+  "/editions": 3,
+  "/active": 4,
+}
 export default function Tab() {
   const [value, setValue] = useState(0);
+  const history = useHistory();
+
+  useEffect(() => {
+    const current = history.location.pathname.split("/")[2];
+    setValue(page[`/${current}`]);
+  },[history])
+
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
+    var action = event.currentTarget.getAttribute("data-action");
+    history.push(`/app${action}`);
   };
 
   return (
@@ -23,11 +40,31 @@ export default function Tab() {
         indicatorColor="primary"
         textColor="inherit"
       >
-        <TabElement label="Geral" icon={<AssignmentTurnedInRounded />} />
-        <TabElement label="Graficos" icon={<BarChartRounded />} />
-        <TabElement label="Clientes" icon={<PeopleAltRounded />} />
-        <TabElement label="Edições" icon={<PostAddRounded />} />
-        <TabElement label="Ativos" icon={<TrendingUpRounded />} />
+        <TabElement
+          label="Geral"
+          data-action="/"
+          icon={<AssignmentTurnedInRounded />}
+        />
+        <TabElement
+          label="Graficos"
+          data-action="/graphics"
+          icon={<BarChartRounded />}
+        />
+        <TabElement
+          label="Clientes"
+          data-action="/clients"
+          icon={<PeopleAltRounded />}
+        />
+        <TabElement
+          label="Edições"
+          data-action="/editions"
+          icon={<PostAddRounded />}
+        />
+        <TabElement
+          label="Ativo"
+          data-action="/active"
+          icon={<TrendingUpRounded />}
+        />
       </Tabs>
     </Box>
   );

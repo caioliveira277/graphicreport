@@ -12,9 +12,7 @@ body {
   overflow-x: hidden;
 }
 
-html,
-body,
-#root {
+html, body, #root {
   height: 100%;
   font-family: "Roboto", sans-serif;
 }
@@ -34,4 +32,16 @@ body,
   -webkit-border-radius: 10px;
   border-radius: 10px;
   background: var(--color-background1);
+}
+
+.MuiPaper-root.MuiCard-root.MuiPaper-elevation1.MuiPaper-rounded{
+  box-shadow: var(--box-shadow1);
+}
+.MuiContainer-root.MuiContainer-fixed.MuiContainer-maxWidthLg{
+  margin-top: 10px;
+  padding: 20px;
+  border-radius: 10px;
+  height: auto;
+  background-color: var(--color-background2);
+  box-shadow: var(--box-shadow1);
 }
