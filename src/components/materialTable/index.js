@@ -5,7 +5,7 @@ export default function MaterialTable({ data }) {
   const [state, setState] = useState(data);
   var editable = {};
 
-  if (state.editable === true) {
+  if (state.editable.active === true) {
     editable = {
       onRowAdd: newData =>
         new Promise(resolve => {
@@ -44,6 +44,7 @@ export default function MaterialTable({ data }) {
         })
     };
   }
+  if(state.editable.Add === false) delete editable.onRowAdd;
 
   return (
     <Table
@@ -83,6 +84,9 @@ export default function MaterialTable({ data }) {
       columns={state.columns}
       data={state.data}
       editable={editable}
+      options={{
+        actionsColumnIndex: 99
+      }}
     />
   );
 }
