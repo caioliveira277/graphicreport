@@ -5,11 +5,12 @@ import {
   makeStyles,
   Card,
   Link,
-  Avatar
+  Avatar,
 } from "@material-ui/core";
 import MaterialTable from "../../components/materialTable";
 import { gridStyle } from "./styles";
 import CardViewClient from "../../components/cards/cardViewClient";
+import CardFeedback from "../../components/cardFeedback";
 
 const customGrid = makeStyles(gridStyle());
 
@@ -115,6 +116,9 @@ export default function Clients() {
         </Grid>
         <Grid item xs={6} className={customGrid().item2}>
           <CardViewClient data={user} />
+        </Grid>
+        <Grid item xs={12} className={customGrid().item2}>
+          <CardFeedback />
         </Grid>
       </Grid>
     </Container>

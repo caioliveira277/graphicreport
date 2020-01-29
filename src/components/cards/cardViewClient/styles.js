@@ -3,7 +3,10 @@ const cardStyle = () => ({
     width: 350,
     padding: 10,
     "& > h2": {
-      color: "#6c6868"
+      color: "#5a5956"
+    },
+    "& > div > h4": {
+      fontWeight: "bold"
     },
   },
   avatar: {

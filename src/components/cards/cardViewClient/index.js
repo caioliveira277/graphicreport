@@ -11,6 +11,7 @@ import { StarBorderRounded } from "@material-ui/icons";
 import { cardStyle } from "./styles";
 
 const customCard = makeStyles(cardStyle());
+
 export default function CardViewClient({ data }) {
   return (
     <Card className={customCard().root}>
@@ -22,31 +23,46 @@ export default function CardViewClient({ data }) {
       </Box>
       <Divider />
       <Box m={2}>
+        <Typography component="h4" gutterBottom>
+          CNPJ:
+        </Typography>
         <Typography component="p" gutterBottom>
-          CNPJ: {data.cnpj}
+          {data.cnpj}
         </Typography>
       </Box>
       <Box m={2}>
-        <Typography component="p" gutterBottom>
-          CPF: {data.cpf}
+        <Typography component="h4" gutterBottom>
+          CPF:
         </Typography>
-      </Box>
-      <Divider />
-      <Box m={2}>
         <Typography component="p" gutterBottom>
-          Método de pagamento: {data.paymentMethod}
-        </Typography>
-      </Box>
-      <Divider />
-      <Box m={2}>
-        <Typography component="p" gutterBottom>
-          Contas: {data.adAccount}
+          {data.cpf}
         </Typography>
       </Box>
       <Divider />
       <Box m={2}>
+        <Typography component="h4" gutterBottom>
+          Método de pagamento:
+        </Typography>
         <Typography component="p" gutterBottom>
-          Acesso: {data.username+" / "+data.password}
+          {data.paymentMethod}
+        </Typography>
+      </Box>
+      <Divider />
+      <Box m={2}>
+        <Typography component="h4" gutterBottom>
+          Contas:
+        </Typography>
+        <Typography component="p" gutterBottom>
+          {data.adAccount}
+        </Typography>
+      </Box>
+      <Divider />
+      <Box m={2}>
+        <Typography component="h4" gutterBottom>
+          Acesso:
+        </Typography>
+        <Typography component="p" gutterBottom>
+          {data.username + " / " + data.password}
         </Typography>
       </Box>
     </Card>
