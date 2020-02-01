@@ -10,6 +10,7 @@ import {
 import MaterialTable from "../../components/materialTable";
 import { gridStyle } from "./styles";
 import CardViewClient from "../../components/cards/cardViewClient";
+import SpeedDials from "../../components/addClient/speedDial";
 import CardFeedback from "../../components/cardFeedback";
 
 const customGrid = makeStyles(gridStyle());
@@ -120,6 +121,7 @@ export default function Clients() {
         <Grid item xs={12} className={customGrid().item2}>
           <CardFeedback />
         </Grid>
+        <SpeedDials />
       </Grid>
     </Container>
   );
