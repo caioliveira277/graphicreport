@@ -8,14 +8,21 @@ import {
   Divider
 } from "@material-ui/core";
 import { StarBorderRounded } from "@material-ui/icons";
+import { useDispatch } from "react-redux";
 import { cardStyle } from "./styles";
 
 const customCard = makeStyles(cardStyle());
 
 export default function CardViewClient({ data }) {
+  const dialogDispatch = useDispatch();
+
+  const handleManagerClient = () => {
+    dialogDispatch({type: "OPEN_MANAGER_CLIENT"});
+  }
+
   return (
     <Card className={customCard().root}>
-      <Typography variant="h5" component="h2" gutterBottom align="center">
+      <Typography variant="h5" component="h2" gutterBottom align="center" onClick={handleManagerClient}>
         <StarBorderRounded /> {data.name} <StarBorderRounded />
       </Typography>
       <Box display="flex" justifyContent="center" mb={1}>
@@ -50,21 +57,13 @@ export default function CardViewClient({ data }) {
       <Divider />
       <Box m={2}>
         <Typography component="h4" gutterBottom>
-          Contas:
+          Descrição:
         </Typography>
         <Typography component="p" gutterBottom>
-          {data.adAccount}
+          {data.description}
         </Typography>
       </Box>
       <Divider />
-      <Box m={2}>
-        <Typography component="h4" gutterBottom>
-          Acesso:
-        </Typography>
-        <Typography component="p" gutterBottom>
-          {data.username + " / " + data.password}
-        </Typography>
-      </Box>
     </Card>
   );
 }

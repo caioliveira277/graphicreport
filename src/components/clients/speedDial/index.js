@@ -12,7 +12,7 @@ export default function SpeedDials() {
   const dialogDispatch = useDispatch();
 
   const handleDialogState = () => {
-    dialogDispatch({type: "OPEN"});
+    dialogDispatch({type: "OPEN_FORM_CLIENT"});
   };
 
   const openStateDial = () => {

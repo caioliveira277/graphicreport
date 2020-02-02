@@ -13,6 +13,7 @@ import CardViewClient from "../../components/cards/cardViewClient";
 import CardFeedback from "../../components/cards/cardFeedback";
 import SpeedDials from "../../components/clients/speedDial";
 import FormProfile from "../../components/clients/formProfile";
+import DialogManagerClient from "../../components/managerClient";
 
 const customGrid = makeStyles(gridStyle());
 
@@ -22,9 +23,7 @@ const users = {
     cpf: "887.965.485-35",
     cnpj: "23.341.028/0001-98",
     paymentMethod: "Boleto",
-    adAccount: "google: Joseph123/secret123, facebook: Joseph321/secret321",
-    username: "MysecretLogin",
-    password: "****",
+    description: "google: Joseph123/secret123, facebook: Joseph321/secret321",
     avatar:
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQfFljs6YFrJbR5d_DVR-7-k9jgmam6y0RpizVKQDTl3LsUGhJPYA&s"
   },
@@ -33,9 +32,7 @@ const users = {
     cpf: "937.965.285-15",
     cnpj: "64.311.028/0001-98",
     paymentMethod: "Cartão de crédito",
-    adAccount: "google: Will123/secret123, facebook: Will321/secret321",
-    username: "MyWillLogin",
-    password: "****",
+    description: "google: Will123/secret123, facebook: Will321/secret321",
     avatar:
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTBMxyAg9hl69ZUyDaSbnCW2ET7pc_6q_AsC5VD0XaWJxoHW6Z-IA&s"
   }
@@ -47,9 +44,7 @@ export default function Clients() {
     cpf: "",
     cnpj: "",
     paymentMethod: "",
-    adAccount: "",
-    username: "",
-    password: "****",
+    description: "",
     avatar: ""
   });
 
@@ -62,9 +57,7 @@ export default function Clients() {
       cpf: users[id].cpf,
       cnpj: users[id].cnpj,
       paymentMethod: users[id].paymentMethod,
-      adAccount: users[id].adAccount,
-      username: users[id].username,
-      password: "****",
+      description: users[id].description,
       avatar: users[id].avatar
     });
   };
@@ -120,6 +113,7 @@ export default function Clients() {
         </Grid>
         <Grid item xs={6} className={customGrid().item2}>
           <CardViewClient data={user} />
+          <DialogManagerClient />
         </Grid>
         <Grid item xs={12} className={customGrid().item2}>
           <CardFeedback />
