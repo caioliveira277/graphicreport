@@ -8,8 +8,7 @@ import {
   Box,
   Avatar
 } from "@material-ui/core";
-import Notifications from "../../notifications/index";
-import { cardStyle } from "../styles";
+import { cardStyle } from "./styles";
 
 const userCardCustom = makeStyles(cardStyle());
 
@@ -29,7 +28,7 @@ const StyledMenu = withStyles()(props => (
   />
 ));
 
-export default function CardUser() {
+export default function CardCurrentUser() {
   const [anchorEl, setAnchorEl] = useState(null);
 
   const handleClick = event => {
@@ -41,13 +40,7 @@ export default function CardUser() {
   };
 
   return (
-    <Box
-      display="flex"
-      className={userCardCustom().root}
-      justifyContent="flex-end"
-      alignItems="center"
-    >
-      <Notifications />
+    <Box className={userCardCustom().root}>
       <Avatar
         onClick={handleClick}
         alt="Caio O"

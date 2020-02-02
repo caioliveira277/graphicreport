@@ -1,7 +1,7 @@
 import React from "react";
 import { Grid, Container, makeStyles } from "@material-ui/core";
 import { ChartBoundaries, ChartPie } from "../../components/charts";
-import RecipeReviewCard from "../../components/cardTask";
+import RecipeReviewCard from "../../components/cards/cardTask";
 import { gridStyle } from "./styles";
 
 const customGrid = makeStyles(gridStyle());

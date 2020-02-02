@@ -28,7 +28,7 @@ export default function FormLogin({ props }) {
     Validation(form).then(res => {
       if (res === true) {
         setActiveStep(3);
-        props.history.push("/app");
+        props.history.push("/app/");
       }
     });
   };

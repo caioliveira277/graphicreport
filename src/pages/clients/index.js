@@ -5,13 +5,14 @@ import {
   makeStyles,
   Card,
   Link,
-  Avatar,
+  Avatar
 } from "@material-ui/core";
 import MaterialTable from "../../components/materialTable";
 import { gridStyle } from "./styles";
 import CardViewClient from "../../components/cards/cardViewClient";
-import SpeedDials from "../../components/addClient/speedDial";
-import CardFeedback from "../../components/cardFeedback";
+import CardFeedback from "../../components/cards/cardFeedback";
+import SpeedDials from "../../components/clients/speedDial";
+import FormProfile from "../../components/clients/formProfile";
 
 const customGrid = makeStyles(gridStyle());
 
@@ -24,7 +25,8 @@ const users = {
     adAccount: "google: Joseph123/secret123, facebook: Joseph321/secret321",
     username: "MysecretLogin",
     password: "****",
-    avatar: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQfFljs6YFrJbR5d_DVR-7-k9jgmam6y0RpizVKQDTl3LsUGhJPYA&s"
+    avatar:
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQfFljs6YFrJbR5d_DVR-7-k9jgmam6y0RpizVKQDTl3LsUGhJPYA&s"
   },
   2: {
     name: "Will Smith",
@@ -34,7 +36,8 @@ const users = {
     adAccount: "google: Will123/secret123, facebook: Will321/secret321",
     username: "MyWillLogin",
     password: "****",
-    avatar: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTBMxyAg9hl69ZUyDaSbnCW2ET7pc_6q_AsC5VD0XaWJxoHW6Z-IA&s"
+    avatar:
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTBMxyAg9hl69ZUyDaSbnCW2ET7pc_6q_AsC5VD0XaWJxoHW6Z-IA&s"
   }
 };
 
@@ -59,7 +62,7 @@ export default function Clients() {
       cpf: users[id].cpf,
       cnpj: users[id].cnpj,
       paymentMethod: users[id].paymentMethod,
-      adAccount:users[id].adAccount,
+      adAccount: users[id].adAccount,
       username: users[id].username,
       password: "****",
       avatar: users[id].avatar
@@ -121,8 +124,9 @@ export default function Clients() {
         <Grid item xs={12} className={customGrid().item2}>
           <CardFeedback />
         </Grid>
-        <SpeedDials />
       </Grid>
+      <SpeedDials />
+      <FormProfile />
     </Container>
   );
 }

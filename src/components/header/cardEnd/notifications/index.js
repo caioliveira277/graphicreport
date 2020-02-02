@@ -44,7 +44,7 @@ export default function Notifications() {
     <>
       <IconButton onClick={handleClick}>
         <Badge badgeContent={2} color="secondary">
-          <NotificationsActive />
+          <NotificationsActive htmlColor="var(--color-text1)"/>
         </Badge>
       </IconButton>
 

@@ -2,10 +2,10 @@ import React, { useState } from "react";
 import { Fab, Drawer, Box, List, ListItem } from "@material-ui/core";
 import { Alert } from "@material-ui/lab";
 import { TurnedIn, Check } from "@material-ui/icons";
-import MaterialTable from "../../materialTable/index";
-import ThemePicker from "../../themePicker/index";
+import MaterialTable from "../../../materialTable/index";
+import ThemePicker from "../../../themePicker/index";
 
-export default function Tasks() {
+export default function ManagerTasks() {
   const [state, setState] = useState({
     left: false
   });
@@ -33,12 +33,12 @@ export default function Tasks() {
     editable: true
   };
 
-  const toggleDrawer = (side, open) => event => {
+  const toggleDrawer = (side, open) => () => {
     setState({ ...state, [side]: open });
   };
 
   return (
-    <Box display="flex" justifyContent="flex-start">
+    <Box display="flex" justifyContent="flex-start" padding="12px">
       <Fab
         variant="extended"
         color="secondary"
