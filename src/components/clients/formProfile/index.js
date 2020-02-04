@@ -43,12 +43,11 @@ export default function FormProfile() {
     if (inputFiles.files && inputFiles.files[0]) {
       const reader = new FileReader();
       reader.onload = event => {
-        img.setAttribute("src", event.target.result)
+        img.setAttribute("src", event.target.result);
       };
       reader.readAsDataURL(inputFiles.files[0]);
     }
   };
-
   const handleClickImage = () => {
     appendAvatar.current.click();
   };
@@ -61,11 +60,14 @@ export default function FormProfile() {
           <Grid item xs={12}>
             <Tooltip title="Adicionar imagem">
               <ButtonBase onClick={handleClickImage}>
-                <Avatar src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRFgpfHaPz2vPtv_qM4HDIQxioSj_bmjpUH27zqrlauuABaOywd&s" ref={imageAvatar}></Avatar>
+                <Avatar
+                  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRFgpfHaPz2vPtv_qM4HDIQxioSj_bmjpUH27zqrlauuABaOywd&s"
+                  ref={imageAvatar}
+                ></Avatar>
               </ButtonBase>
             </Tooltip>
             <Box display="none">
-              <input type="file" ref={appendAvatar} onChange={renderImage}/>
+              <input type="file" ref={appendAvatar} onChange={renderImage} />
             </Box>
           </Grid>
           <Grid item xs={6}>
