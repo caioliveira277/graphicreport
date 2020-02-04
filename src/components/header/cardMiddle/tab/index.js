@@ -11,7 +11,7 @@ import { Box, Tabs, Tab as TabElement } from "@material-ui/core";
 
 const page = {
   "/": 0,
-  "/graphics": 1,
+  "/campaigns": 1,
   "/clients": 2,
   "/editions": 3,
   "/active": 4,
@@ -46,8 +46,8 @@ export default function Tab() {
           icon={<AssignmentTurnedInRounded />}
         />
         <TabElement
-          label="Graficos"
-          data-action="/graphics"
+          label="Campanhas"
+          data-action="/campaigns"
           icon={<BarChartRounded />}
         />
         <TabElement
